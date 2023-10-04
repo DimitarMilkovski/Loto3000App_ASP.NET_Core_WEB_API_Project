@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Loto3000_App.props" />
+</Project>

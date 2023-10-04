@@ -1,0 +1,14 @@
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\bin\Debug\net6.0\Loto3000_App.Shared.deps.json
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\bin\Debug\net6.0\Loto3000_App.Shared.runtimeconfig.json
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\bin\Debug\net6.0\Loto3000_App.Shared.dll
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\bin\Debug\net6.0\Loto3000_App.Shared.pdb
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\Loto3000_App.Shared.csproj.AssemblyReference.cache
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\Loto3000_App.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\Loto3000_App.Shared.AssemblyInfoInputs.cache
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\Loto3000_App.Shared.AssemblyInfo.cs
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\Loto3000_App.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\Loto3000_App.Shared.dll
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\refint\Loto3000_App.Shared.dll
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\Loto3000_App.Shared.pdb
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\Loto3000_App.Shared.genruntimeconfig.cache
+C:\Users\Dell\Desktop\Loto3000 App\Loto3000_App\Loto3000_App.Shared\obj\Debug\net6.0\ref\Loto3000_App.Shared.dll
