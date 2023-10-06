@@ -36,6 +36,23 @@ namespace Loto3000_App.Mappers
 
             };
         }
+        public static Combination ToCombination (this CombinationDto combinationDto, Ticket ticket)
+        {
+            return new Combination
+            {
+                Ticket = ticket,
+                TicketId = ticket.Id,
+                Number1 = combinationDto.Number1,
+                Number2 = combinationDto.Number2,
+                Number3 = combinationDto.Number3,
+                Number4 = combinationDto.Number4,
+                Number5 = combinationDto.Number5,
+                Number6 = combinationDto.Number6,
+                Number7 = combinationDto.Number7,
+            };
+                    
+
+        }
 
 
     }

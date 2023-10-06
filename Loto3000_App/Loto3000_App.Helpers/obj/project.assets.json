@@ -3021,11 +3021,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000_App\\Loto3000_App.Helpers\\Loto3000_App.Helpers.csproj",
+      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000App_ASP.NET_Core_WEB_API_Project\\Loto3000_App\\Loto3000_App.Helpers\\Loto3000_App.Helpers.csproj",
       "projectName": "Loto3000_App.Helpers",
-      "projectPath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000_App\\Loto3000_App.Helpers\\Loto3000_App.Helpers.csproj",
+      "projectPath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000App_ASP.NET_Core_WEB_API_Project\\Loto3000_App\\Loto3000_App.Helpers\\Loto3000_App.Helpers.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000_App\\Loto3000_App.Helpers\\obj\\",
+      "outputPath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000App_ASP.NET_Core_WEB_API_Project\\Loto3000_App\\Loto3000_App.Helpers\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3042,11 +3042,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000_App\\Loto3000_App.DataAcess\\Loto3000_App.DataAcess.csproj": {
-              "projectPath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000_App\\Loto3000_App.DataAcess\\Loto3000_App.DataAcess.csproj"
+            "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000App_ASP.NET_Core_WEB_API_Project\\Loto3000_App\\Loto3000_App.DataAcess\\Loto3000_App.DataAcess.csproj": {
+              "projectPath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000App_ASP.NET_Core_WEB_API_Project\\Loto3000_App\\Loto3000_App.DataAcess\\Loto3000_App.DataAcess.csproj"
             },
-            "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000_App\\Loto3000_App.Services\\Loto3000_App.Services.csproj": {
-              "projectPath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000_App\\Loto3000_App.Services\\Loto3000_App.Services.csproj"
+            "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000App_ASP.NET_Core_WEB_API_Project\\Loto3000_App\\Loto3000_App.Services\\Loto3000_App.Services.csproj": {
+              "projectPath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000App_ASP.NET_Core_WEB_API_Project\\Loto3000_App\\Loto3000_App.Services\\Loto3000_App.Services.csproj"
             }
           }
         }

@@ -11,6 +11,7 @@ namespace Loto3000_App.DataAcess.Interfaces
     {
         List<Ticket> GetByUserId(int userId);
         List<Ticket> GetByUserAndSessionId(int userId, int sessionId);
+        List<Ticket> GetAllSessionTickets(int sessionId);
 
     }
 }

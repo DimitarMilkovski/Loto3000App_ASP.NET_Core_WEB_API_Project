@@ -10,7 +10,7 @@ namespace Loto3000_App.DTOs.TicketDtos
     public class TicketDto
     {
         public int TicketNumber { get; set; }
-        public String UserFullname { get; set; }
+        public string UserFullname { get; set; }
         public DateTime SessionStartDate { get; set; }
         public DateTime SessionEndDate { get; set; }
         public List<CombinationDto> Combinations { get; set; }

@@ -56,6 +56,15 @@ namespace Loto3000_App.DataAcess
                 .WithMany(x=>x.TicketList)
                 .HasForeignKey(x => x.SessionId);
 
+
+            modelBuilder.HasSequence<int>("TicketNumber")
+                .StartsAt(1000)
+                .IncrementsBy(1);
+
+            modelBuilder.Entity<Ticket>()
+                .Property(t => t.TicketNumber)
+                .HasDefaultValueSql("NEXT VALUE FOR TicketNumber");
+
             //Combination
             modelBuilder.Entity<Combination>()
                 .HasOne(x => x.Ticket)
@@ -80,6 +89,8 @@ namespace Loto3000_App.DataAcess
                 .HasOne(x=>x.Session)
                 .WithMany(x=>x.WinnerList)
                 .HasForeignKey(x => x.SessionId);
+
+            
 
             
 

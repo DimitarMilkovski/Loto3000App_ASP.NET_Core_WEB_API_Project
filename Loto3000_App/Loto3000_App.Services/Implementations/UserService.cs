@@ -48,7 +48,7 @@ namespace Loto3000_App.Services.Implementations
             User userDb = _userRepository.LoginUser(loginDto.Username, hash);
             if (userDb == null)
             {
-                throw new Exception("User not found");
+                throw new Exception("User not found! Wrong password or username!");
             }
 
 

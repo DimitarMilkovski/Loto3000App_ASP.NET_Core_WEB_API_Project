@@ -17,5 +17,6 @@ namespace Loto3000_App.Services.Interfaces
 
         void CreateTicket(List<CombinationDto> combinations, int userId);
         void DeleteTicket(int id, int userId);
+        TicketDto UpdateTicket(UpdateTicketDto updateTicketDto);
     }
 }

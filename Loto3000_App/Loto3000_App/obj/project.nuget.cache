@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XdT/tgpbf00OSbgqrTA0l5puycwrGDuoPG/LToQicJvvoh3zCrZvWFnmX0TEPW/PEngEI7HDljnV6Uw4D3mwcQ==",
+  "dgSpecHash": "HQusBVJ7+INEdhora1weTAxkwogOjU1QJ13liwU7EjpydT33/SKoKe8KTBzltjYU1II1bZQCX2zegY9o8PQJ2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000_App\\Loto3000_App\\Loto3000_App.csproj",
+  "projectFilePath": "C:\\Users\\Dell\\Desktop\\Loto3000 App\\Loto3000App_ASP.NET_Core_WEB_API_Project\\Loto3000_App\\Loto3000_App\\Loto3000_App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

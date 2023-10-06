@@ -40,13 +40,11 @@ namespace Loto3000_App.Controllers
             try
             {
                 string token = _userService.LogIn(loginDto);
-                Log.Information($"Successfully login: {loginDto.Username}");
                 return Ok(token);
             }
             catch (Exception e)
             {
-                Log.Error($"Internal exception: {e.Message}");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred!");
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
 

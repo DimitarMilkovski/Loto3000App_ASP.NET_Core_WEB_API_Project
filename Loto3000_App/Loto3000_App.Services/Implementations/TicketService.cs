@@ -30,7 +30,6 @@ namespace Loto3000_App.Services.Implementations
 
         public void CreateTicket(List<CombinationDto> combinations, int userId)
         {
-            int ticketNumber = _ticketRepository.GetAll().Count + 1;
 
             if (combinations.Count == 0)
             {
@@ -43,7 +42,7 @@ namespace Loto3000_App.Services.Implementations
             bool validateCombinations = ValidateCombinations(combinations);
             if(!validateCombinations) 
             {
-                throw new TicketDataException("The combinations must have 7 numbers from 1 - 37!");
+                throw new TicketDataException("The combinations must have 7 distinct numbers from 1 - 37!");
             }
 
             User userDb = _userRepository.GetById(userId);
@@ -61,7 +60,6 @@ namespace Loto3000_App.Services.Implementations
 
             Ticket newTicket = new Ticket
             {
-                TicketNumber = ticketNumber,
                 User = userDb,
                 UserId = userId,
                 Session = onGoingSessionDb,
@@ -160,12 +158,48 @@ namespace Loto3000_App.Services.Implementations
             return allPLayerTickets.Select(x=>x.ToTicketDto()).ToList() ;
         }
 
+        public TicketDto UpdateTicket(UpdateTicketDto updateTicketDto)
+        {
+            Ticket ticketDb = _ticketRepository.GetById(updateTicketDto.Id);
+            if (ticketDb == null)
+            {
+                throw new TicketNotFoundException($"Ticket with id: {updateTicketDto.Id} was not found!");
+            }
+
+            User userDb = _userRepository.GetById(updateTicketDto.UserId);
+            if (userDb == null)
+            {
+                throw new TicketDataException($"User with id: {updateTicketDto.Id} does not exist!");
+            }
+
+            Session ongoingSession = _sessionRepository.GetOngoingSession();
+            if (ongoingSession.Id !=updateTicketDto.SessionId )
+            {
+                throw new TicketDataException("The ticket cannot be updated to expired session!");
+            }
+
+            ticketDb.User = userDb;
+            ticketDb.UserId = userDb.Id;
+            ticketDb.Session = ongoingSession;
+            ticketDb.SessionId = ongoingSession.Id;
+
+            List<Combination> updatedCombinations = updateTicketDto.Combinations.Select(x=>x.ToCombination(ticketDb)).ToList();
+
+            ticketDb.Combinations = updatedCombinations;
+
+            _ticketRepository.Update(ticketDb);
+            TicketDto ticketDtoResult = ticketDb.ToTicketDto();
+            return ticketDtoResult;
+
+        }
+
         private bool ValidateCombinations(List<CombinationDto> combinations)
         {
             foreach (CombinationDto combination in combinations)
             {
 
                 PropertyInfo[] properties = typeof(CombinationDto).GetProperties();
+                List<int> combinationNumbers = new List<int>();
 
                 foreach (var property in properties)
                 {
@@ -182,14 +216,18 @@ namespace Loto3000_App.Services.Implementations
                         {
                             return false;
                         }
+                        combinationNumbers.Add(combinationNumber);
                     }
                     else
                     {
-                        // The value is not a valid integer
                         return false;
                     }
                     
                     
+                }
+                if(combinationNumbers.Distinct().Count() != combinationNumbers.Count())
+                {
+                    return false;
                 }
                 
             }

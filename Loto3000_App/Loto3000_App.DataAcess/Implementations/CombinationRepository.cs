@@ -23,22 +23,23 @@ namespace Loto3000_App.DataAcess.Implementations
 
         public void Delete(Combination entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Combinations.Remove(entity);
+            _dbContext.SaveChanges();
         }
 
         public List<Combination> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Combinations.ToList();
         }
 
         public Combination GetById(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.Combinations.FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(Combination entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Combinations.Update(entity);
         }
     }
 }

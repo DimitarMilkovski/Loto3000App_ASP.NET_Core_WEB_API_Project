@@ -4,6 +4,7 @@
     {
         public Ticket Ticket { get; set; }
         public int TicketId { get; set; }
+        public Winner? Winner { get; set; }
         public int Number1 { get; set; }
         public int Number2 { get; set; } 
         public int Number3 { get; set; }

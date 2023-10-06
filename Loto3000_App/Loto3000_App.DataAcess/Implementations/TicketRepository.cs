@@ -41,6 +41,15 @@ namespace Loto3000_App.DataAcess.Implementations
                 .ToList();
         }
 
+        public List<Ticket> GetAllSessionTickets(int sessionId)
+        {
+            return _dbContext.Tickets
+                .Include(x => x.Combinations)
+                .Include(x => x.User)
+                .Where(x => x.SessionId == sessionId)
+                .ToList();
+        }
+
         public Ticket GetById(int id)
         {
             return _dbContext.Tickets
@@ -72,7 +81,8 @@ namespace Loto3000_App.DataAcess.Implementations
 
         public void Update(Ticket entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Tickets.Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }

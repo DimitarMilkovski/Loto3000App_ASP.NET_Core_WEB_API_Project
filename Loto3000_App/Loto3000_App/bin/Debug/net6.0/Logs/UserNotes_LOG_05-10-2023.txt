@@ -1,0 +1,30 @@
+
+11:37:41 [Information] () Successfully login: dimitarm
+
+12:16:16 [Information] () Successfully login: dimitarm
+
+13:14:45 [Information] () Successfully login: dimitarm
+
+13:17:59 [Information] () Successfully login: dimitarm
+
+13:36:12 [Information] () Successfully login: dimitarm
+
+15:02:38 [Error] () Internal exception: User not found
+
+15:02:56 [Information] () Successfully login: admin
+
+15:04:39 [Information] () Successfully login: admin
+
+20:45:23 [Error] () Internal exception: The entity type 'List<int>' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.
+
+20:46:09 [Error] () Internal exception: Username and password are required fields!
+
+09:06:00 [Error] () Internal exception: The entity type 'List<int>' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.
+
+09:06:04 [Error] () Internal exception: The entity type 'List<int>' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.
+
+09:06:16 [Error] () Internal exception: The entity type 'List<int>' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.
+
+09:06:37 [Error] () Internal exception: The entity type 'List<int>' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.
+
+09:06:48 [Error] () Internal exception: The entity type 'List<int>' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.

@@ -22,6 +22,9 @@ namespace Loto3000_App.DataAcess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.HasSequence<int>("TicketNumber")
+                .StartsAt(1000L);
+
             modelBuilder.Entity("Loto3000_App.Domain.Combination", b =>
                 {
                     b.Property<int>("Id")
@@ -95,7 +98,9 @@ namespace Loto3000_App.DataAcess.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("TicketNumber")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("NEXT VALUE FOR TicketNumber");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -159,7 +164,13 @@ namespace Loto3000_App.DataAcess.Migrations
                     b.Property<int>("SessionId")
                         .HasColumnType("int");
 
+                    b.Property<int>("TicketNumber")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WinningCombinationId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -167,6 +178,10 @@ namespace Loto3000_App.DataAcess.Migrations
                     b.HasIndex("SessionId");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("WinningCombinationId")
+                        .IsUnique()
+                        .HasFilter("[WinningCombinationId] IS NOT NULL");
 
                     b.ToTable("Winners");
                 });
@@ -215,9 +230,20 @@ namespace Loto3000_App.DataAcess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Loto3000_App.Domain.Combination", "WinningCombination")
+                        .WithOne("Winner")
+                        .HasForeignKey("Loto3000_App.Domain.Winner", "WinningCombinationId");
+
                     b.Navigation("Session");
 
                     b.Navigation("User");
+
+                    b.Navigation("WinningCombination");
+                });
+
+            modelBuilder.Entity("Loto3000_App.Domain.Combination", b =>
+                {
+                    b.Navigation("Winner");
                 });
 
             modelBuilder.Entity("Loto3000_App.Domain.Session", b =>

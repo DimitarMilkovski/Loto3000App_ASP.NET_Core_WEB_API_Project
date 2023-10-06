@@ -138,6 +138,29 @@ namespace Loto3000_App.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [HttpPut]
+        public ActionResult<UpdateTicketDto> UpdateTicket([FromBody] UpdateTicketDto updateTicketDto)
+        {
+            try
+            {
+                TicketDto updatedTicket = _ticketService.UpdateTicket(updateTicketDto);
+
+                return Ok(updatedTicket);
+            }
+            catch (TicketNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (TicketDataException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
         
 
 
@@ -152,6 +175,8 @@ namespace Loto3000_App.Controllers
             }
             return userId;
         }
+
+        
 
     }
 }

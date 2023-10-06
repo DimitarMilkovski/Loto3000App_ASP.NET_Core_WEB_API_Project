@@ -17,12 +17,14 @@ namespace Loto3000_App.DataAcess.Implementations
         }
         public void Add(Session entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Sessions.Add(entity);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(Session entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Remove(entity);
+            _dbContext.SaveChanges();
         }
 
         public List<Session> GetAll()
@@ -32,7 +34,7 @@ namespace Loto3000_App.DataAcess.Implementations
 
         public Session GetById(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.Sessions.FirstOrDefault(x => x.Id == id);
         }
 
         public Session GetOngoingSession()
@@ -42,7 +44,8 @@ namespace Loto3000_App.DataAcess.Implementations
 
         public void Update(Session entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Sessions.Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }
