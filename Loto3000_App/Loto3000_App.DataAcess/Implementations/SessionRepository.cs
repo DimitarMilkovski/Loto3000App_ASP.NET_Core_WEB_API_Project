@@ -37,6 +37,15 @@ namespace Loto3000_App.DataAcess.Implementations
             return _dbContext.Sessions.FirstOrDefault(x => x.Id == id);
         }
 
+        public Session GetLastExpiredSession()
+        {
+            return _dbContext.Sessions
+                .OrderByDescending(e => e.Id)
+                .Skip(1)
+                .Take(1)
+                .SingleOrDefault();
+        }
+
         public Session GetOngoingSession()
         {
             return _dbContext.Sessions.FirstOrDefault(x => x.Ongoing == true);

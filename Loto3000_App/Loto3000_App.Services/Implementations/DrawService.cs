@@ -31,12 +31,27 @@ namespace Loto3000_App.Services.Implementations
         }
         public List<WinnerDto> GetAllWinners()
         {
-            throw new NotImplementedException();
+            List<Winner> allWinners = _winnerRepository.GetAll();
+            if(allWinners == null)
+            {
+                throw new WinnerNotFoundException("No winner was found!");
+            }
+            return allWinners.Select(x=>x.ToWinnerDto()).ToList();
         }
 
         public List<WinnerDto> GetLastSessionWinners()
         {
-            throw new NotImplementedException();
+            Session lastExpiredSession = _sessionRepository.GetLastExpiredSession();
+            if(lastExpiredSession == null)
+            {
+                throw new DrawDataException("Last expired session was not found!");
+            }
+            List<Winner> allSessionWinners = _winnerRepository.GetBySession(lastExpiredSession.Id);
+            if(allSessionWinners == null)
+            {
+                throw new WinnerNotFoundException("No Winners were found for the last expired Session");
+            }
+            return allSessionWinners.Select(x => x.ToWinnerDto()).ToList();
         }
 
         public List<WinnerDto> StartDraw()
@@ -66,7 +81,7 @@ namespace Loto3000_App.Services.Implementations
             {
                 foreach (var combination in ticket.Combinations)
                 {
-                    List<int> combinationNumbers = MakeListFromCombinationNumbersProperties(combination);
+                    List<int> combinationNumbers = CombinationNumbersToList(combination);
 
                     int matchingNumbers = CountMatchingNumbers(drawnNumbers, combinationNumbers);
 
@@ -85,7 +100,6 @@ namespace Loto3000_App.Services.Implementations
                                     WinningCombination = combination,
                                     WinningCombinationId = combination.Id
                                 });
-
                                 break;
                             }
                         case 4:
@@ -102,7 +116,6 @@ namespace Loto3000_App.Services.Implementations
                                     WinningCombinationId = combination.Id
 
                                 });
-
                                 break;
                             }
                         case 5:
@@ -118,7 +131,6 @@ namespace Loto3000_App.Services.Implementations
                                     WinningCombination = combination,
                                     WinningCombinationId = combination.Id
                                 });
-
                                 break;
                             }
                         case 6:
@@ -134,7 +146,6 @@ namespace Loto3000_App.Services.Implementations
                                     WinningCombination = combination,
                                     WinningCombinationId = combination.Id
                                 });
-
                                 break;
                             }
                         case 7:
@@ -150,7 +161,6 @@ namespace Loto3000_App.Services.Implementations
                                     WinningCombination = combination,
                                     WinningCombinationId = combination.Id
                                 });
-
                                 break;
                             }
 
@@ -158,13 +168,8 @@ namespace Loto3000_App.Services.Implementations
                             {
                                 break;
                             }
-
                     }
-
-
-
                 }
-
             }
 
             //add the winners to the session winnerslist
@@ -206,7 +211,7 @@ namespace Loto3000_App.Services.Implementations
             return WinningNumbers;
         }
 
-        private List<int> MakeListFromCombinationNumbersProperties(Combination combination)
+        private List<int> CombinationNumbersToList(Combination combination)
         {
             return new List<int>
             {

@@ -10,5 +10,6 @@ namespace Loto3000_App.DataAcess.Interfaces
     public interface ISessionRepository: IRepository<Session>
     {
         Session GetOngoingSession();
+        Session GetLastExpiredSession();
     }
 }

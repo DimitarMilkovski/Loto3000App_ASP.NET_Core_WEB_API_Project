@@ -72,9 +72,9 @@ namespace Loto3000_App.DataAcess
                 .HasForeignKey(x => x.TicketId);
 
             //Session
-            //modelBuilder.Entity<Session>()
-            //    .Property(x => x.EndDate)
-            //    .IsRequired(false);
+            modelBuilder.Entity<Session>()
+                .Property(x => x.Ongoing)
+                .HasComputedColumnSql("CASE WHEN EndDate < GETDATE() THEN 0 ELSE 1 END");
 
             //Winner
             modelBuilder.Entity<Winner>()

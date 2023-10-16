@@ -56,6 +56,7 @@ namespace Loto3000_App.DataAcess.Implementations
         public void Update(User entity)
         {
             _dbContext.Update(entity);
+            _dbContext.SaveChanges();
             
         }
     }

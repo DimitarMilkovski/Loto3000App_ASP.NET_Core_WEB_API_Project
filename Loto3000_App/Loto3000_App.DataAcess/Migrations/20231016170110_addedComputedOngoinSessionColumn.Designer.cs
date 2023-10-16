@@ -4,6 +4,7 @@ using Loto3000_App.DataAcess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Loto3000_App.DataAcess.Migrations
 {
     [DbContext(typeof(Loto3000DbContext))]
-    partial class Loto3000DbContextModelSnapshot : ModelSnapshot
+    [Migration("20231016170110_addedComputedOngoinSessionColumn")]
+    partial class addedComputedOngoinSessionColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Loto3000_App.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class DrawController : ControllerBase
@@ -18,7 +18,8 @@ namespace Loto3000_App.Controllers
             _drawService = drawService;
         }
 
-        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
         public ActionResult<List<WinnerDto>> StartDraw()
         {
             try
@@ -36,5 +37,52 @@ namespace Loto3000_App.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
+        [AllowAnonymous]
+        [HttpGet("lastSessionWinners")]
+        public ActionResult <List<WinnerDto>> LastSessionWinners() 
+        {
+            try
+            {
+                List<WinnerDto> lastSessionWinners = _drawService.GetLastSessionWinners();
+                return Ok(lastSessionWinners);
+            }
+            catch (DrawDataException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (WinnerNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult<List<WinnerDto>> AllSessionsWinners()
+        {
+            try
+            {
+                List<WinnerDto> lastSessionWinners = _drawService.GetAllWinners();
+                return Ok(lastSessionWinners);
+            }
+            catch (DrawDataException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (WinnerNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
     }
 }

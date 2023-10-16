@@ -1,5 +1,6 @@
 ﻿using Loto3000_App.DataAcess.Interfaces;
 using Loto3000_App.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,27 +24,41 @@ namespace Loto3000_App.DataAcess.Implementations
 
         public void Delete(Winner entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Remove(entity);
+            _dbContext.SaveChanges();
         }
 
         public List<Winner> GetAll()
         {
-            return _dbContext.Winners.ToList();
+            return _dbContext.Winners
+                .Include(x=>x.User)
+                .Include(x=>x.Session)
+                .Include(x=>x.WinningCombination)
+                .ToList();
         }
 
         public Winner GetById(int id)
         {
-            throw new NotImplementedException();
+            return _dbContext.Winners
+                .Include(x => x.User)
+                .Include(x => x.Session)
+                .Include(x => x.WinningCombination)
+                .FirstOrDefault(x => x.Id == id);
         }
 
         public List<Winner> GetBySession(int sessionId)
         {
-            return _dbContext.Winners.Where(x=>x.SessionId == sessionId).ToList();
+            return _dbContext.Winners
+                .Include(x => x.User)
+                .Include(x => x.Session)
+                .Include(x => x.WinningCombination)
+                .Where(x=>x.SessionId == sessionId).ToList();
         }
 
         public void Update(Winner entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Update(entity);
+            _dbContext.SaveChanges();
         }
     }
 }
