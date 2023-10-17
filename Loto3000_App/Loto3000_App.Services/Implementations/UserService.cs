@@ -32,25 +32,19 @@ namespace Loto3000_App.Services.Implementations
                 throw new Exception("Username and password are required fields!");
             }
 
-
             MD5CryptoServiceProvider mD5CryptoServiceProvider = new MD5CryptoServiceProvider();
-
 
             byte[] passwordBytes = Encoding.ASCII.GetBytes(loginDto.Password);
 
-
             byte[] hashBytes = mD5CryptoServiceProvider.ComputeHash(passwordBytes);
 
-
             string hash = Encoding.ASCII.GetString(hashBytes);
-
 
             User userDb = _userRepository.LoginUser(loginDto.Username, hash);
             if (userDb == null)
             {
                 throw new Exception("User not found! Wrong password or username!");
             }
-
 
             JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             byte[] secretKeyBytes = Encoding.ASCII.GetBytes("This is a very very very secret key!");
@@ -93,15 +87,9 @@ namespace Loto3000_App.Services.Implementations
                 Role = RoleEnum.Player
             };
             _userRepository.Add(user);
-
-
         }
 
-
-
-
-
-
+        //Method that validates the user
         public void ValidateUser(RegisterUserDto registerUserDto)
         {
             if (string.IsNullOrEmpty(registerUserDto.Username) || string.IsNullOrEmpty(registerUserDto.Password))

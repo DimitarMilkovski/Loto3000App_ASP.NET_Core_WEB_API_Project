@@ -172,12 +172,9 @@ namespace Loto3000_App.Services.Implementations
                 }
             }
 
-            //add the winners to the session winnerslist
             List<Winner> sessionWinners = _winnerRepository.GetBySession(ongoingSession.Id);
-            //ongoingSession.WinnerList = sessionWinners;
-            //_sessionRepository.Update(ongoingSession);
 
-            //create new session
+            //create new ongoing session
             Session newSession = new Session
             {
                 StartDate = DateTime.Now,
@@ -189,7 +186,7 @@ namespace Loto3000_App.Services.Implementations
             return sessionWinners.Select(x=>x.ToWinnerDto()).ToList();
         }
 
-
+        //Method for drawing 8 distinct random numbers from 1-37
         private List<int> DrawSessionWinningNumbers()
         {
             Random rnd = new Random();
@@ -211,6 +208,7 @@ namespace Loto3000_App.Services.Implementations
             return WinningNumbers;
         }
 
+        //Method for mapping Combination entity number properties to list of 7 numbers
         private List<int> CombinationNumbersToList(Combination combination)
         {
             return new List<int>
@@ -224,6 +222,7 @@ namespace Loto3000_App.Services.Implementations
                 combination.Number7
             };
         }
+        //Method that counts matching numbers between 2 lists
         private int CountMatchingNumbers (List<int> list1, List<int> list2)
         {
             int count = 0;

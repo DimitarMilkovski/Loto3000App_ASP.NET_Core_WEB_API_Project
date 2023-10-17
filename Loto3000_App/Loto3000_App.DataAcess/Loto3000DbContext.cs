@@ -71,11 +71,6 @@ namespace Loto3000_App.DataAcess
                 .WithMany(x => x.Combinations)
                 .HasForeignKey(x => x.TicketId);
 
-            //Session
-            modelBuilder.Entity<Session>()
-                .Property(x => x.Ongoing)
-                .HasComputedColumnSql("CASE WHEN EndDate < GETDATE() THEN 0 ELSE 1 END");
-
             //Winner
             modelBuilder.Entity<Winner>()
                 .HasOne(x=>x.User)
@@ -90,18 +85,8 @@ namespace Loto3000_App.DataAcess
                 .WithMany(x=>x.WinnerList)
                 .HasForeignKey(x => x.SessionId);
 
-            
-
-            
-
-
-
-
-
-
 
         }
-
 
     }
 }

@@ -193,6 +193,7 @@ namespace Loto3000_App.Services.Implementations
 
         }
 
+        //Method that validates the combination numbers (integers from 1-37 and Distinct) return true or false
         private bool ValidateCombinations(List<CombinationDto> combinations)
         {
             foreach (CombinationDto combination in combinations)
@@ -222,15 +223,14 @@ namespace Loto3000_App.Services.Implementations
                     {
                         return false;
                     }
-                    
-                    
+
                 }
                 if(combinationNumbers.Distinct().Count() != combinationNumbers.Count())
                 {
                     return false;
                 }
-                
             }
+
             return true;
         }
     }

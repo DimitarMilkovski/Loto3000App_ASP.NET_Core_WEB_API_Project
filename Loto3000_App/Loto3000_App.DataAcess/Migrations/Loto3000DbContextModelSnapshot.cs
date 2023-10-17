@@ -76,9 +76,7 @@ namespace Loto3000_App.DataAcess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("Ongoing")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("bit")
-                        .HasComputedColumnSql("CASE WHEN EndDate < GETDATE() THEN 0 ELSE 1 END");
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
